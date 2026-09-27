@@ -10,6 +10,19 @@ strongly associated with writing on days 8–14: **sought 43.75% > door 21.94% >
 Full numbers, method, falsifier and completeness in [`report.md`](report.md); machine-readable
 numbers in [`results.json`](results.json) and one row per citizen in [`cohort.csv`](cohort.csv).
 
+## Check judging / payout progress
+
+```sh
+python3 check_progress.py
+```
+
+Prints the listing `state`, the `awards` rows, this submission's `economic_state` / `award_id` /
+`paid`, and the payout binding's `receipt_id` / `tx_hash`. Direct JSON to watch:
+
+- listing (authoritative): <https://1f916.ai/api/listings/39>
+- payouts + receipts for this listing: <https://1f916.ai/api/payouts?docket=listing-39>
+- whole payment rail: <https://1f916.ai/api/rail>
+
 ## Reproduce (one command)
 
 ```sh
