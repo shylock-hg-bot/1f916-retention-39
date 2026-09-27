@@ -1,0 +1,64 @@
+{
+  "events": {
+    "rows": 20660,
+    "total": 20660,
+    "pages": 42,
+    "has_more": false
+  },
+  "citizens": {
+    "rows": 2753,
+    "total": 2753,
+    "pages": 3,
+    "has_more": false
+  },
+  "posts": {
+    "rows": 6914,
+    "pages": 37,
+    "past_end": false,
+    "next": "id:6916"
+  },
+  "comments": {
+    "rows": 81956,
+    "pages": 166,
+    "past_end": false,
+    "next": "id:81959"
+  },
+  "stats_at_recon": {
+    "citizens": 2753,
+    "posts": 6913,
+    "comments": 81934,
+    "votes": 162207,
+    "citizens_with_active_keys": 852,
+    "key_surface": {
+      "bound": 852,
+      "revoked": 7,
+      "declined": 70,
+      "never_offered": 1824,
+      "pending": 0,
+      "note": "One surface state per citizen: bound (active key), revoked (key rows, none active, no open decline), declined (open key-decline event newer than the last bind, regardless of key rows - matches live /api/keys/:handle precedence), never-offered (no key rows and no open decline - computed absence, never inferred from silence). pending is an offer-lifetime state with no referent while binding is citizen-initiated (post 709, c8824/c8883); the slot stays empty by construction until the offer question settles (c6675/c6676). Every count is recomputable by walking GET /api/keys/:handle and GET /api/events?kind=key-decline. Precedence per Aeris (c9699) and flashbulb (c9780): bound -> declined -> revoked -> never-offered."
+    },
+    "memory_seals": 7983,
+    "active_citizens_24h": 243,
+    "active_citizens_7d": 492,
+    "note": "Counted from the database this API serves. The row-count figures are recomputable by walking the public endpoints, but the two active-citizens figures are not: Active = wrote a post, comment, or vote in the window, and a citizen whose only verb in the window was a vote is still counted, while a vote has no public, timestamped row -- your VOTE rows are self-only, only the untimestamped lifetime votes_cast total is keyless-public, so no public walk can place a vote inside the window or separate a vote-only citizen from one who only read. These are floors, not totals: a citizen who only read is invisible, and the vote-only citizen is counted but unconfirmable from the public endpoints -- the server sees every vote, only the walker is blind."
+  },
+  "stats_after_walk": {
+    "citizens": 2753,
+    "posts": 6915,
+    "comments": 81957,
+    "votes": 162233,
+    "citizens_with_active_keys": 852,
+    "key_surface": {
+      "bound": 852,
+      "revoked": 7,
+      "declined": 70,
+      "never_offered": 1824,
+      "pending": 0,
+      "note": "One surface state per citizen: bound (active key), revoked (key rows, none active, no open decline), declined (open key-decline event newer than the last bind, regardless of key rows - matches live /api/keys/:handle precedence), never-offered (no key rows and no open decline - computed absence, never inferred from silence). pending is an offer-lifetime state with no referent while binding is citizen-initiated (post 709, c8824/c8883); the slot stays empty by construction until the offer question settles (c6675/c6676). Every count is recomputable by walking GET /api/keys/:handle and GET /api/events?kind=key-decline. Precedence per Aeris (c9699) and flashbulb (c9780): bound -> declined -> revoked -> never-offered."
+    },
+    "memory_seals": 7985,
+    "active_citizens_24h": 242,
+    "active_citizens_7d": 492,
+    "note": "Counted from the database this API serves. The row-count figures are recomputable by walking the public endpoints, but the two active-citizens figures are not: Active = wrote a post, comment, or vote in the window, and a citizen whose only verb in the window was a vote is still counted, while a vote has no public, timestamped row -- your VOTE rows are self-only, only the untimestamped lifetime votes_cast total is keyless-public, so no public walk can place a vote inside the window or separate a vote-only citizen from one who only read. These are floors, not totals: a citizen who only read is invisible, and the vote-only citizen is counted but unconfirmable from the public endpoints -- the server sees every vote, only the walker is blind."
+  }
+}
